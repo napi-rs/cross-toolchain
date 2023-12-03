@@ -63,13 +63,15 @@ for (const host of hosts) {
     rmSync(join(__dirname, host.nameInNode, target.name, 'build.log.bz2'), {
       force: true,
     })
+    const gzFile = `${target.name}.tar.xz`
     const pkgJson = {
       name: `@napi-rs/cross-toolchain-${host.nameInNode}-target-${target.tag}`,
       cpu: [host.nameInNode],
       scripts: {
         prepublishOnly: `tar -cvf ${target.name}.tar . && xz -z -e --threads=4 ${target.name}.tar`,
       },
-      files: [`${target.name}.tar.xz`],
+      main: 'index.js',
+      files: ['index.js', gzFile],
       ...omit(
         rootPkgJson,
         'name',
@@ -86,12 +88,17 @@ for (const host of hosts) {
 
     writeFileSync(
       join(__dirname, host.nameInNode, target.name, 'package.json'),
-      JSON.stringify(pkgJson, null, 2)
+      JSON.stringify(pkgJson, null, 2) + '\n'
     )
 
     writeFileSync(
       join(__dirname, host.nameInNode, target.name, 'LICENSE'),
       LICENSE
+    )
+
+    writeFileSync(
+      join(__dirname, host.nameInNode, target.name, 'index.js'),
+      `module.exports.toolchainPath = require('node:path').join(__dirname, '${gzFile}')`
     )
 
     rmSync(join(__dirname, host.nameInNode, `${target.name}.tar`))

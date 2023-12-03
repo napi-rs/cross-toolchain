@@ -4,9 +4,11 @@
     "x64"
   ],
   "scripts": {
-    "prepublishOnly": "tar -cvf x86_64-unknown-linux-gnu.tar . && xz -z -e --threads=4 x86_64-unknown-linux-gnu.tar"
+    "prepublishOnly": "node update-peer.mjs"
   },
+  "main": "index.js",
   "files": [
+    "index.js",
     "x86_64-unknown-linux-gnu.tar.xz"
   ],
   "version": "0.0.6",

@@ -4,9 +4,11 @@
     "arm64"
   ],
   "scripts": {
-    "prepublishOnly": "tar -cvf aarch64-unknown-linux-gnu.tar . && xz -z -e --threads=4 aarch64-unknown-linux-gnu.tar"
+    "prepublishOnly": "node update-peer.mjs"
   },
+  "main": "index.js",
   "files": [
+    "index.js",
     "aarch64-unknown-linux-gnu.tar.xz"
   ],
   "version": "0.0.6",

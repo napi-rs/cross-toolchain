@@ -4,9 +4,11 @@
     "arm64"
   ],
   "scripts": {
-    "prepublishOnly": "tar -cvf armv7-unknown-linux-gnueabihf.tar . && xz -z -e --threads=4 armv7-unknown-linux-gnueabihf.tar"
+    "prepublishOnly": "node update-peer.mjs"
   },
+  "main": "index.js",
   "files": [
+    "index.js",
     "armv7-unknown-linux-gnueabihf.tar.xz"
   ],
   "version": "0.0.6",
