@@ -82,6 +82,7 @@ for (const host of hosts) {
         'workspaces',
         'packageManager',
         'peerDependencies',
+        'scripts',
         'peerDependenciesMeta'
       ),
     }
