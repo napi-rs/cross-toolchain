@@ -6,40 +6,26 @@ on:
       - '*'
   workflow_dispatch:
 
+permissions:
+  contents: write
+  id-token: write
+
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        host: ['amd64', 'arm64']
-        targets:
-          - {
-              name: 'x86_64-unknown-linux-gnu',
-              tag: 'x86_64'
-            }
-          - {
-              name: 'aarch64-unknown-linux-gnu',
-              tag: 'aarch64'
-            }
-          - {
-              name: 'armv7-unknown-linux-gnueabihf',
-              tag: 'armv7'
-            }
+    if: ${{ github.ref_type == 'tag' }}
     steps:
       - uses: actions/checkout@v4
-      - name: pull docker image
-        run: docker pull --platform=linux/${{ matrix.host }} messense/manylinux2014-cross:${{ matrix.targets.tag }}
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+      - uses: actions/setup-node@v4
         with:
-          platforms: arm64
-      - run: docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
-      - name: Create tarball
+          node-version: '20'
+          cache: 'yarn'
+      - name: Install dependencies
+        run: yarn install
+      - name: Publish npm package
         run: |
-          mkdir -p ${{ matrix.host }}
-          docker run --rm --platform=linux/${{ matrix.host }} -v "$(pwd)/${{ matrix.host }}":/${{ matrix.host }} messense/manylinux2014-cross:${{ matrix.targets.tag }} bash -c "tar -cvf /${{ matrix.host }}/${{ matrix.targets.name }}.tar /usr/${{ matrix.targets.name }}"
-      - name: Upload tarball
-        uses: actions/upload-artifact@v3
-        with:
-          name: ${{ matrix.host }}-${{ matrix.targets.name }}-tarball
-          path: ${{ matrix.host }}/${{ matrix.targets.name }}.tar
+          npm config set provenance true
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+          yarn lerna publish from-package --no-verify-access --yes
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

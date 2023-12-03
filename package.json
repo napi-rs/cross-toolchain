@@ -1,0 +1,43 @@
+{
+  "name": "@napi-rs/cross-toolchain",
+  "version": "0.0.0",
+  "license": "MIT",
+  "workspaces": [
+    "arm64/*",
+    "x64/*"
+  ],
+  "os": [
+    "linux"
+  ],
+  "cpu": [
+    "x64",
+    "arm64"
+  ],
+  "libc": [
+    "glibc"
+  ],
+  "author": {
+    "name": "LongYinan",
+    "email": "github@lyn.one",
+    "url": "https://lyn.one"
+  },
+  "repository": "https://github.com/napi-rs/cross-toolchain",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "packageManager": "yarn@4.0.2",
+  "files": [],
+  "dependencies": {
+    "@napi-rs/cross-toolchain-arm64-target-aarch64": "workspace:*",
+    "@napi-rs/cross-toolchain-arm64-target-armv7": "workspace:*",
+    "@napi-rs/cross-toolchain-arm64-target-x86_64": "workspace:*",
+    "@napi-rs/cross-toolchain-x64-target-aarch64": "workspace:*",
+    "@napi-rs/cross-toolchain-x64-target-armv7": "workspace:*",
+    "@napi-rs/cross-toolchain-x64-target-x86_64": "workspace:*"
+  },
+  "devDependencies": {
+    "lerna": "^8.0.0",
+    "lodash-es": "^4.17.21"
+  }
+}
