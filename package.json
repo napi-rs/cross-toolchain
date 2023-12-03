@@ -1,6 +1,6 @@
 {
   "name": "@napi-rs/cross-toolchain",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "workspaces": [
     ".",
