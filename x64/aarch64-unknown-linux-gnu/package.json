@@ -9,7 +9,7 @@
   "files": [
     "aarch64-unknown-linux-gnu.tar.xz"
   ],
-  "version": "0.0.4",
+  "version": "0.0.5",
   "license": "MIT",
   "os": [
     "linux"
