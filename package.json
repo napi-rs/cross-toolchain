@@ -1,6 +1,6 @@
 {
   "name": "@napi-rs/cross-toolchain",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "license": "MIT",
   "workspaces": [
     "arm64/*",
@@ -27,7 +27,9 @@
     "access": "public"
   },
   "packageManager": "yarn@4.0.2",
-  "files": [],
+  "files": [
+    "LICENSE"
+  ],
   "dependencies": {
     "@napi-rs/cross-toolchain-arm64-target-aarch64": "workspace:*",
     "@napi-rs/cross-toolchain-arm64-target-armv7": "workspace:*",

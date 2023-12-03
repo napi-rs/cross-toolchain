@@ -1,5 +1,5 @@
 import { execSync } from 'node:child_process'
-import { rmSync, renameSync, writeFileSync } from 'node:fs'
+import { rmSync, renameSync, writeFileSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -8,6 +8,8 @@ import { omit } from 'lodash-es'
 import rootPkgJson from './package.json' assert { type: 'json' }
 
 const __dirname = join(fileURLToPath(import.meta.url), '..')
+
+const LICENSE = readFileSync(join(__dirname, 'LICENSE'), 'utf8')
 
 const hosts = [
   {
@@ -70,6 +72,8 @@ for (const host of hosts) {
       join(__dirname, host.nameInNode, target.name, 'package.json'),
       JSON.stringify(pkgJson, null, 2)
     )
+
+    writeFileSync(join(__dirname, host.nameInNode, target.name, 'LICENSE'), LICENSE)
 
     rmSync(join(__dirname, host.nameInNode, `${target.name}.tar`))
   }
