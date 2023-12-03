@@ -1,0 +1,40 @@
+name: Build toolchain
+
+on:
+  push:
+    tags:
+      - '*'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        host: ['amd64', 'arm64']
+        targets:
+          - {
+              name: 'x86_64-unknown-linux-gnu',
+              tag: 'x86_64'
+            }
+          - {
+              name: 'aarch64-unknown-linux-gnu',
+              tag: 'aarch64'
+            }
+          - {
+              name: 'armv7-unknown-linux-gnueabihf',
+              tag: 'armv7'
+            }
+    steps:
+      - uses: actions/checkout@v4
+      - name: pull docker image
+        run: docker pull --platform=linux/${{ matrix.host }} messense/manylinux2014-cross:${{ matrix.targets.tag }}
+      - name: Create tarball
+        run: |
+          mkdir -p ${{ matrix.host }}
+          docker run --rm --platform=linux/${{ matrix.host }} -v "$(pwd)/${{ matrix.host }}":/${{ matrix.host }} messense/manylinux2014-cross:${{ matrix.targets.tag }} bash -c "tar -cvf /${{ matrix.host }}/${{ matrix.targets.name }}.tar /usr/${{ matrix.targets.name }}"
+      - name: Upload tarball
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ matrix.host }}-${{ matrix.targets.name }}-tarball
+          path: ${{ matrix.host }}/${{ matrix.targets.name }}.tar
