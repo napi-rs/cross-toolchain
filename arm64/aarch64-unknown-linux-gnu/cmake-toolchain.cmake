@@ -1,0 +1,5 @@
+set(CMAKE_SYSTEM_NAME Linux)
+set(CMAKE_SYSTEM_PROCESSOR aarch64)
+set(CMAKE_SYSROOT /usr/aarch64-unknown-linux-gnu/aarch64-unknown-linux-gnu/sysroot/)
+set(CMAKE_C_COMPILER aarch64-unknown-linux-gnu-gcc)
+set(CMAKE_CXX_COMPILER aarch64-unknown-linux-gnu-g++)

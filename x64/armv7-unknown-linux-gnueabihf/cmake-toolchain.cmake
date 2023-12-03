@@ -1,0 +1,5 @@
+set(CMAKE_SYSTEM_NAME Linux)
+set(CMAKE_SYSTEM_PROCESSOR armv7)
+set(CMAKE_SYSROOT /usr/armv7-unknown-linux-gnueabihf/armv7-unknown-linux-gnueabihf/sysroot/)
+set(CMAKE_C_COMPILER armv7-unknown-linux-gnueabihf-gcc)
+set(CMAKE_CXX_COMPILER armv7-unknown-linux-gnueabihf-g++)
