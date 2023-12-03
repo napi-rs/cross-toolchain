@@ -3,6 +3,12 @@
   "cpu": [
     "x64"
   ],
+  "scripts": {
+    "prepublishOnly": "tar -cvf armv7-unknown-linux-gnueabihf.tar . && xz -z -e --threads=4 armv7-unknown-linux-gnueabihf.tar"
+  },
+  "files": [
+    "armv7-unknown-linux-gnueabihf.tar.xz"
+  ],
   "version": "0.0.2",
   "license": "MIT",
   "os": [

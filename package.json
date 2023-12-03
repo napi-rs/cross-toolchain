@@ -31,13 +31,33 @@
   "files": [
     "LICENSE"
   ],
-  "dependencies": {
+  "peerDependencies": {
     "@napi-rs/cross-toolchain-arm64-target-aarch64": "workspace:*",
     "@napi-rs/cross-toolchain-arm64-target-armv7": "workspace:*",
     "@napi-rs/cross-toolchain-arm64-target-x86_64": "workspace:*",
     "@napi-rs/cross-toolchain-x64-target-aarch64": "workspace:*",
     "@napi-rs/cross-toolchain-x64-target-armv7": "workspace:*",
     "@napi-rs/cross-toolchain-x64-target-x86_64": "workspace:*"
+  },
+  "peerDependenciesMeta": {
+    "@napi-rs/cross-toolchain-arm64-target-aarch64": {
+      "optional": true
+    },
+    "@napi-rs/cross-toolchain-arm64-target-armv7": {
+      "optional": true
+    },
+    "@napi-rs/cross-toolchain-arm64-target-x86_64": {
+      "optional": true
+    },
+    "@napi-rs/cross-toolchain-x64-target-aarch64": {
+      "optional": true
+    },
+    "@napi-rs/cross-toolchain-x64-target-armv7": {
+      "optional": true
+    },
+    "@napi-rs/cross-toolchain-x64-target-x86_64": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "lerna": "^8.0.0",

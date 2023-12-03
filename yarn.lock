@@ -142,37 +142,37 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@napi-rs/cross-toolchain-arm64-target-aarch64@workspace:*, @napi-rs/cross-toolchain-arm64-target-aarch64@workspace:arm64/aarch64-unknown-linux-gnu":
+"@napi-rs/cross-toolchain-arm64-target-aarch64@workspace:arm64/aarch64-unknown-linux-gnu":
   version: 0.0.0-use.local
   resolution: "@napi-rs/cross-toolchain-arm64-target-aarch64@workspace:arm64/aarch64-unknown-linux-gnu"
   languageName: unknown
   linkType: soft
 
-"@napi-rs/cross-toolchain-arm64-target-armv7@workspace:*, @napi-rs/cross-toolchain-arm64-target-armv7@workspace:arm64/armv7-unknown-linux-gnueabihf":
+"@napi-rs/cross-toolchain-arm64-target-armv7@workspace:arm64/armv7-unknown-linux-gnueabihf":
   version: 0.0.0-use.local
   resolution: "@napi-rs/cross-toolchain-arm64-target-armv7@workspace:arm64/armv7-unknown-linux-gnueabihf"
   languageName: unknown
   linkType: soft
 
-"@napi-rs/cross-toolchain-arm64-target-x86_64@workspace:*, @napi-rs/cross-toolchain-arm64-target-x86_64@workspace:arm64/x86_64-unknown-linux-gnu":
+"@napi-rs/cross-toolchain-arm64-target-x86_64@workspace:arm64/x86_64-unknown-linux-gnu":
   version: 0.0.0-use.local
   resolution: "@napi-rs/cross-toolchain-arm64-target-x86_64@workspace:arm64/x86_64-unknown-linux-gnu"
   languageName: unknown
   linkType: soft
 
-"@napi-rs/cross-toolchain-x64-target-aarch64@workspace:*, @napi-rs/cross-toolchain-x64-target-aarch64@workspace:x64/aarch64-unknown-linux-gnu":
+"@napi-rs/cross-toolchain-x64-target-aarch64@workspace:x64/aarch64-unknown-linux-gnu":
   version: 0.0.0-use.local
   resolution: "@napi-rs/cross-toolchain-x64-target-aarch64@workspace:x64/aarch64-unknown-linux-gnu"
   languageName: unknown
   linkType: soft
 
-"@napi-rs/cross-toolchain-x64-target-armv7@workspace:*, @napi-rs/cross-toolchain-x64-target-armv7@workspace:x64/armv7-unknown-linux-gnueabihf":
+"@napi-rs/cross-toolchain-x64-target-armv7@workspace:x64/armv7-unknown-linux-gnueabihf":
   version: 0.0.0-use.local
   resolution: "@napi-rs/cross-toolchain-x64-target-armv7@workspace:x64/armv7-unknown-linux-gnueabihf"
   languageName: unknown
   linkType: soft
 
-"@napi-rs/cross-toolchain-x64-target-x86_64@workspace:*, @napi-rs/cross-toolchain-x64-target-x86_64@workspace:x64/x86_64-unknown-linux-gnu":
+"@napi-rs/cross-toolchain-x64-target-x86_64@workspace:x64/x86_64-unknown-linux-gnu":
   version: 0.0.0-use.local
   resolution: "@napi-rs/cross-toolchain-x64-target-x86_64@workspace:x64/x86_64-unknown-linux-gnu"
   languageName: unknown
@@ -182,14 +182,28 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@napi-rs/cross-toolchain@workspace:."
   dependencies:
+    lerna: "npm:^8.0.0"
+    lodash-es: "npm:^4.17.21"
+  peerDependencies:
     "@napi-rs/cross-toolchain-arm64-target-aarch64": "workspace:*"
     "@napi-rs/cross-toolchain-arm64-target-armv7": "workspace:*"
     "@napi-rs/cross-toolchain-arm64-target-x86_64": "workspace:*"
     "@napi-rs/cross-toolchain-x64-target-aarch64": "workspace:*"
     "@napi-rs/cross-toolchain-x64-target-armv7": "workspace:*"
     "@napi-rs/cross-toolchain-x64-target-x86_64": "workspace:*"
-    lerna: "npm:^8.0.0"
-    lodash-es: "npm:^4.17.21"
+  peerDependenciesMeta:
+    "@napi-rs/cross-toolchain-arm64-target-aarch64":
+      optional: true
+    "@napi-rs/cross-toolchain-arm64-target-armv7":
+      optional: true
+    "@napi-rs/cross-toolchain-arm64-target-x86_64":
+      optional: true
+    "@napi-rs/cross-toolchain-x64-target-aarch64":
+      optional: true
+    "@napi-rs/cross-toolchain-x64-target-armv7":
+      optional: true
+    "@napi-rs/cross-toolchain-x64-target-x86_64":
+      optional: true
   languageName: unknown
   linkType: soft
 

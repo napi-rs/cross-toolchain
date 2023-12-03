@@ -50,10 +50,11 @@ for (const host of hosts) {
       force: true,
     })
     execSync(
-      `tar -xvf ${join(__dirname, host.nameInNode, `${target.name}.tar`)} -C ${join(
+      `tar -xvf ${join(
         __dirname,
-        host.nameInNode
-      )}`
+        host.nameInNode,
+        `${target.name}.tar`
+      )} -C ${join(__dirname, host.nameInNode)}`
     )
     renameSync(
       join(__dirname, host.nameInNode, `usr/${target.name}`),
@@ -65,7 +66,22 @@ for (const host of hosts) {
     const pkgJson = {
       name: `@napi-rs/cross-toolchain-${host.nameInNode}-target-${target.tag}`,
       cpu: [host.nameInNode],
-      ...omit(rootPkgJson, 'name', 'cpu', 'dependencies', 'devDependencies', 'files', 'workspaces', 'packageManager'),
+      scripts: {
+        prepublishOnly: `tar -cvf ${target.name}.tar . && xz -z -e --threads=4 ${target.name}.tar`,
+      },
+      files: [`${target.name}.tar.xz`],
+      ...omit(
+        rootPkgJson,
+        'name',
+        'cpu',
+        'dependencies',
+        'devDependencies',
+        'files',
+        'workspaces',
+        'packageManager',
+        'peerDependencies',
+        'peerDependenciesMeta'
+      ),
     }
 
     writeFileSync(
@@ -73,9 +89,15 @@ for (const host of hosts) {
       JSON.stringify(pkgJson, null, 2)
     )
 
-    writeFileSync(join(__dirname, host.nameInNode, target.name, 'LICENSE'), LICENSE)
+    writeFileSync(
+      join(__dirname, host.nameInNode, target.name, 'LICENSE'),
+      LICENSE
+    )
 
     rmSync(join(__dirname, host.nameInNode, `${target.name}.tar`))
   }
-  rmSync(join(__dirname, host.nameInNode, 'usr'), { recursive: true, force: true })
+  rmSync(join(__dirname, host.nameInNode, 'usr'), {
+    recursive: true,
+    force: true,
+  })
 }
