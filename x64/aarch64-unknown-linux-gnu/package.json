@@ -11,7 +11,7 @@
     "index.js",
     "aarch64-unknown-linux-gnu.tar.xz"
   ],
-  "version": "0.0.8",
+  "version": "0.0.9",
   "license": "MIT",
   "os": [
     "linux"
