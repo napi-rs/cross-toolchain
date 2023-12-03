@@ -31,6 +31,9 @@
   "files": [
     "LICENSE"
   ],
+  "scripts": {
+    "prepublishOnly": "node update-peer.mjs"
+  },
   "peerDependencies": {
     "@napi-rs/cross-toolchain-arm64-target-aarch64": "workspace:*",
     "@napi-rs/cross-toolchain-arm64-target-armv7": "workspace:*",
