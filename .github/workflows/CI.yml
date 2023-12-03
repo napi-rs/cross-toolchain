@@ -24,6 +24,7 @@ jobs:
         run: yarn install
       - name: Publish npm package
         run: |
+          npm config set provenance true
           echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
           yarn lerna publish from-package --no-verify-access --yes
         env:
