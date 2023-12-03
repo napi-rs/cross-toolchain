@@ -9,7 +9,7 @@
   "files": [
     "armv7-unknown-linux-gnueabihf.tar.xz"
   ],
-  "version": "0.0.3",
+  "version": "0.0.4",
   "license": "MIT",
   "os": [
     "linux"
