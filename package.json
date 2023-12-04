@@ -2,6 +2,8 @@
   "name": "@napi-rs/cross-toolchain",
   "version": "0.0.9",
   "license": "MIT",
+  "main": "index.js",
+  "types": "index.d.ts",
   "workspaces": [
     ".",
     "arm64/*",
@@ -30,6 +32,7 @@
   "packageManager": "yarn@4.0.2",
   "files": [
     "index.js",
+    "index.d.ts",
     "LICENSE"
   ],
   "scripts": {

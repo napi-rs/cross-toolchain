@@ -71,7 +71,8 @@ for (const host of hosts) {
         prepublishOnly: `tar -cvf ${target.name}.tar . && xz -z -e --threads=4 ${target.name}.tar`,
       },
       main: 'index.js',
-      files: ['index.js', gzFile],
+      types: 'index.d.ts',
+      files: ['index.js', 'index.d.ts', gzFile],
       ...omit(
         rootPkgJson,
         'name',
@@ -79,6 +80,8 @@ for (const host of hosts) {
         'dependencies',
         'devDependencies',
         'files',
+        'main',
+        'types',
         'workspaces',
         'packageManager',
         'peerDependencies',
@@ -99,7 +102,12 @@ for (const host of hosts) {
 
     writeFileSync(
       join(__dirname, host.nameInNode, target.name, 'index.js'),
-      `module.exports.toolchainPath = require('node:path').join(__dirname, '${gzFile}')`
+      `module.exports.toolchainPath = require('node:path').join(__dirname, '${gzFile}')\n`
+    )
+
+    writeFileSync(
+      join(__dirname, host.nameInNode, target.name, 'index.d.ts'),
+      `export const toolchainPath: string\n`
     )
 
     rmSync(join(__dirname, host.nameInNode, `${target.name}.tar`))
