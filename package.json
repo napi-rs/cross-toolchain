@@ -9,16 +9,6 @@
     "arm64/*",
     "x64/*"
   ],
-  "os": [
-    "linux"
-  ],
-  "cpu": [
-    "x64",
-    "arm64"
-  ],
-  "libc": [
-    "glibc"
-  ],
   "author": {
     "name": "LongYinan",
     "email": "github@lyn.one",
