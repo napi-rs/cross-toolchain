@@ -184,7 +184,6 @@ __metadata:
   dependencies:
     "@napi-rs/lzma": "npm:^1.2.1"
     "@napi-rs/tar": "npm:^0.0.1"
-    colorette: "npm:^2.0.20"
     debug: "npm:^4.3.4"
     lerna: "npm:^8.0.0"
     lodash-es: "npm:^4.17.21"
@@ -1540,13 +1539,6 @@ __metadata:
   bin:
     color-support: bin.js
   checksum: 8ffeaa270a784dc382f62d9be0a98581db43e11eee301af14734a6d089bd456478b1a8b3e7db7ca7dc5b18a75f828f775c44074020b51c05fc00e6d0992b1cc6
-  languageName: node
-  linkType: hard
-
-"colorette@npm:^2.0.20":
-  version: 2.0.20
-  resolution: "colorette@npm:2.0.20"
-  checksum: e94116ff33b0ff56f3b83b9ace895e5bf87c2a7a47b3401b8c3f3226e050d5ef76cf4072fb3325f9dc24d1698f9b730baf4e05eeaf861d74a1883073f4c98a40
   languageName: node
   linkType: hard
 
