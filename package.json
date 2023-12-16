@@ -57,12 +57,12 @@
     }
   },
   "devDependencies": {
-    "lerna": "^8.0.0",
+    "lerna": "^8.0.1",
     "lodash-es": "^4.17.21"
   },
   "dependencies": {
     "@napi-rs/lzma": "^1.2.1",
-    "@napi-rs/tar": "^0.0.1",
+    "@napi-rs/tar": "^0.1.0",
     "debug": "^4.3.4"
   }
 }
