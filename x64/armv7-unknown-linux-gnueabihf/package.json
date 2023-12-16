@@ -13,14 +13,8 @@
     "index.d.ts",
     "armv7-unknown-linux-gnueabihf.tar.xz"
   ],
-  "version": "0.0.12",
+  "version": "0.0.13",
   "license": "MIT",
-  "os": [
-    "linux"
-  ],
-  "libc": [
-    "glibc"
-  ],
   "author": {
     "name": "LongYinan",
     "email": "github@lyn.one",
