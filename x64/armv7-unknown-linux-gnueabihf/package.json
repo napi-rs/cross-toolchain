@@ -13,7 +13,7 @@
     "index.d.ts",
     "armv7-unknown-linux-gnueabihf.tar.xz"
   ],
-  "version": "0.0.14",
+  "version": "0.0.16",
   "license": "MIT",
   "author": {
     "name": "LongYinan",
