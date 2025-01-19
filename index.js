@@ -14,6 +14,10 @@ let x64TargetAarch64
 let x64TargetArmv7
 let x64TargetS390x
 
+const alias = {
+  's390x-unknown-linux-gnu': 's390x-ibm-linux-gnu',
+}
+
 try {
   arm64TargetX86_64 =
     require('@napi-rs/cross-toolchain-arm64-target-x86_64').toolchainPath
@@ -132,7 +136,7 @@ module.exports.download = function download(arch, triple) {
   debug(`Unpacking ${tgzFile} ...`)
   archive.unpack(dest)
   rmSync(join(__dirname, tgzFile))
-  const xzFile = join(dest, 'package', `${triple}.tar.xz`)
+  const xzFile = join(dest, 'package', `${alias[triple] ?? triple}.tar.xz`)
   debug(`Decompressing ${xzFile} ...`)
   const decompressed = decompressSync(readFileSync(xzFile))
   debug(`Reading Archive ${xzFile} ...`)
