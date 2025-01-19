@@ -2,7 +2,7 @@ import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-import rootPkgJson from './package.json' assert { type: 'json' }
+import rootPkgJson from './package.json' with { type: 'json' }
 
 const __dirname = join(fileURLToPath(import.meta.url), '..')
 
