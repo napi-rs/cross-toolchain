@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url'
 
 import { omit } from 'lodash-es'
 
-import rootPkgJson from './package.json' assert { type: 'json' }
+import rootPkgJson from './package.json' with { type: 'json' }
 
 const __dirname = join(fileURLToPath(import.meta.url), '..')
 
@@ -33,6 +33,10 @@ const targets = [
   {
     name: 'armv7-unknown-linux-gnueabihf',
     tag: 'armv7',
+  },
+  {
+    name: 's390x-ibm-linux-gnu',
+    tag: 's390x',
   },
 ]
 

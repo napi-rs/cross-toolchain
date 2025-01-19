@@ -1,0 +1,28 @@
+{
+  "name": "@napi-rs/cross-toolchain-arm64-target-s390x",
+  "cpu": [
+    "arm64"
+  ],
+  "scripts": {
+    "prepublishOnly": "tar -cvf s390x-ibm-linux-gnu.tar . && xz -z -e --threads=4 s390x-ibm-linux-gnu.tar"
+  },
+  "main": "index.js",
+  "types": "index.d.ts",
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "s390x-ibm-linux-gnu.tar.xz"
+  ],
+  "version": "0.0.16",
+  "license": "MIT",
+  "author": {
+    "name": "LongYinan",
+    "email": "github@lyn.one",
+    "url": "https://lyn.one"
+  },
+  "repository": "https://github.com/napi-rs/cross-toolchain",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  }
+}

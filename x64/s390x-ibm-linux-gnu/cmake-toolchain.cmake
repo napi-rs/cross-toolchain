@@ -1,0 +1,5 @@
+set(CMAKE_SYSTEM_NAME Linux)
+set(CMAKE_SYSTEM_PROCESSOR s390x)
+set(CMAKE_SYSROOT /usr/s390x-ibm-linux-gnu/s390x-ibm-linux-gnu/sysroot/)
+set(CMAKE_C_COMPILER s390x-ibm-linux-gnu-gcc)
+set(CMAKE_CXX_COMPILER s390x-ibm-linux-gnu-g++)
