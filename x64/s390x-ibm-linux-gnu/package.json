@@ -13,7 +13,7 @@
     "index.d.ts",
     "s390x-ibm-linux-gnu.tar.xz"
   ],
-  "version": "0.0.16",
+  "version": "0.0.17",
   "license": "MIT",
   "author": {
     "name": "LongYinan",
