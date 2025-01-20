@@ -38,6 +38,10 @@ const targets = [
     name: 's390x-ibm-linux-gnu',
     tag: 's390x',
   },
+  {
+    name: 'powerpc64le-unknown-linux-gnu',
+    tag: 'ppc64le',
+  },
 ]
 
 for (const host of hosts) {

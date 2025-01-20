@@ -1,0 +1,28 @@
+{
+  "name": "@napi-rs/cross-toolchain-x64-target-ppc64le",
+  "cpu": [
+    "x64"
+  ],
+  "scripts": {
+    "prepublishOnly": "tar -cvf powerpc64le-unknown-linux-gnu.tar . && xz -z -e --threads=4 powerpc64le-unknown-linux-gnu.tar"
+  },
+  "main": "index.js",
+  "types": "index.d.ts",
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "powerpc64le-unknown-linux-gnu.tar.xz"
+  ],
+  "version": "0.0.18",
+  "license": "MIT",
+  "author": {
+    "name": "LongYinan",
+    "email": "github@lyn.one",
+    "url": "https://lyn.one"
+  },
+  "repository": "https://github.com/napi-rs/cross-toolchain",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  }
+}
