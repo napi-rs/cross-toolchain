@@ -179,6 +179,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@napi-rs/cross-toolchain-arm64-target-ppc64le@workspace:arm64/powerpc64le-unknown-linux-gnu":
+  version: 0.0.0-use.local
+  resolution: "@napi-rs/cross-toolchain-arm64-target-ppc64le@workspace:arm64/powerpc64le-unknown-linux-gnu"
+  languageName: unknown
+  linkType: soft
+
 "@napi-rs/cross-toolchain-arm64-target-s390x@workspace:arm64/s390x-ibm-linux-gnu":
   version: 0.0.0-use.local
   resolution: "@napi-rs/cross-toolchain-arm64-target-s390x@workspace:arm64/s390x-ibm-linux-gnu"
@@ -200,6 +206,12 @@ __metadata:
 "@napi-rs/cross-toolchain-x64-target-armv7@workspace:x64/armv7-unknown-linux-gnueabihf":
   version: 0.0.0-use.local
   resolution: "@napi-rs/cross-toolchain-x64-target-armv7@workspace:x64/armv7-unknown-linux-gnueabihf"
+  languageName: unknown
+  linkType: soft
+
+"@napi-rs/cross-toolchain-x64-target-ppc64le@workspace:x64/powerpc64le-unknown-linux-gnu":
+  version: 0.0.0-use.local
+  resolution: "@napi-rs/cross-toolchain-x64-target-ppc64le@workspace:x64/powerpc64le-unknown-linux-gnu"
   languageName: unknown
   linkType: soft
 
