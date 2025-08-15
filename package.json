@@ -29,18 +29,28 @@
     "prepublishOnly": "node update-peer.mjs"
   },
   "peerDependencies": {
-    "@napi-rs/cross-toolchain-arm64-target-aarch64": "workspace:*",
-    "@napi-rs/cross-toolchain-arm64-target-armv7": "workspace:*",
-    "@napi-rs/cross-toolchain-arm64-target-x86_64": "workspace:*",
-    "@napi-rs/cross-toolchain-x64-target-aarch64": "workspace:*",
-    "@napi-rs/cross-toolchain-x64-target-armv7": "workspace:*",
-    "@napi-rs/cross-toolchain-x64-target-x86_64": "workspace:*"
+    "@napi-rs/cross-toolchain-arm64-target-aarch64": "^1.0.0",
+    "@napi-rs/cross-toolchain-arm64-target-armv7": "^1.0.0",
+    "@napi-rs/cross-toolchain-arm64-target-ppc64le": "^1.0.0",
+    "@napi-rs/cross-toolchain-arm64-target-s390x": "^1.0.0",
+    "@napi-rs/cross-toolchain-arm64-target-x86_64": "^1.0.0",
+    "@napi-rs/cross-toolchain-x64-target-aarch64": "^1.0.0",
+    "@napi-rs/cross-toolchain-x64-target-armv7": "^1.0.0",
+    "@napi-rs/cross-toolchain-x64-target-ppc64le": "^1.0.0",
+    "@napi-rs/cross-toolchain-x64-target-s390x": "^1.0.0",
+    "@napi-rs/cross-toolchain-x64-target-x86_64": "^1.0.0"
   },
   "peerDependenciesMeta": {
     "@napi-rs/cross-toolchain-arm64-target-aarch64": {
       "optional": true
     },
     "@napi-rs/cross-toolchain-arm64-target-armv7": {
+      "optional": true
+    },
+    "@napi-rs/cross-toolchain-arm64-target-ppc64le": {
+      "optional": true
+    },
+    "@napi-rs/cross-toolchain-arm64-target-s390x": {
       "optional": true
     },
     "@napi-rs/cross-toolchain-arm64-target-x86_64": {
@@ -52,6 +62,12 @@
     "@napi-rs/cross-toolchain-x64-target-armv7": {
       "optional": true
     },
+    "@napi-rs/cross-toolchain-x64-target-ppc64le": {
+      "optional": true
+    },
+    "@napi-rs/cross-toolchain-x64-target-s390x": {
+      "optional": true
+    },
     "@napi-rs/cross-toolchain-x64-target-x86_64": {
       "optional": true
     }
@@ -61,8 +77,8 @@
     "lodash-es": "^4.17.21"
   },
   "dependencies": {
-    "@napi-rs/lzma": "^1.4.3",
-    "@napi-rs/tar": "^1.0.0",
+    "@napi-rs/lzma": "^1.4.5",
+    "@napi-rs/tar": "^1.1.0",
     "debug": "^4.4.1"
   }
 }
