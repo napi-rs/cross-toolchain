@@ -24,5 +24,4 @@ jobs:
       - name: Publish npm package
         run: |
           npm install -g npm
-          yarn workspaces foreach "npm publish --access public"
-
+          yarn workspaces foreach -A -t exec "npm publish --access public"
