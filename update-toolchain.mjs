@@ -25,29 +25,40 @@ const targets = [
   {
     name: 'x86_64-unknown-linux-gnu',
     tag: 'x86_64',
+    image: 'messense/manylinux2014-cross',
   },
   {
     name: 'aarch64-unknown-linux-gnu',
     tag: 'aarch64',
+    image: 'messense/manylinux2014-cross',
   },
   {
     name: 'armv7-unknown-linux-gnueabihf',
     tag: 'armv7',
+    image: 'messense/manylinux2014-cross',
   },
   {
     name: 's390x-ibm-linux-gnu',
     tag: 's390x',
+    image: 'messense/manylinux2014-cross',
   },
   {
     name: 'powerpc64le-unknown-linux-gnu',
     tag: 'ppc64le',
+    image: 'messense/manylinux2014-cross',
+  },
+  {
+    name: 'loongarch64-unknown-linux-gnu',
+    tag: 'loongarch64',
+    // messense/manylinux2014-cross doesn't support loongarch64, so we are using manylinux_2_36-cross here
+    image: 'messense/manylinux_2_36-cross',
   },
 ]
 
 for (const host of hosts) {
   for (const target of targets) {
     execSync(
-      `docker run --rm --platform=linux/${host.name} -v "$(pwd)/${host.nameInNode}":/${host.nameInNode} messense/manylinux2014-cross:${target.tag} bash -c "tar -cvf /${host.nameInNode}/${target.name}.tar /usr/${target.name}"`,
+      `docker run --rm --platform=linux/${host.name} -v "$(pwd)/${host.nameInNode}":/${host.nameInNode} ${target.image}:${target.tag} bash -c "tar -cvf /${host.nameInNode}/${target.name}.tar /usr/${target.name}"`,
       {
         encoding: 'utf8',
         stdio: 'inherit',
