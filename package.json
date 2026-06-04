@@ -32,11 +32,13 @@
     "@napi-rs/cross-toolchain-arm64-target-aarch64": "^1.0.0",
     "@napi-rs/cross-toolchain-arm64-target-armv7": "^1.0.0",
     "@napi-rs/cross-toolchain-arm64-target-ppc64le": "^1.0.0",
+    "@napi-rs/cross-toolchain-arm64-target-riscv64": "^1.0.0",
     "@napi-rs/cross-toolchain-arm64-target-s390x": "^1.0.0",
     "@napi-rs/cross-toolchain-arm64-target-x86_64": "^1.0.0",
     "@napi-rs/cross-toolchain-x64-target-aarch64": "^1.0.0",
     "@napi-rs/cross-toolchain-x64-target-armv7": "^1.0.0",
     "@napi-rs/cross-toolchain-x64-target-ppc64le": "^1.0.0",
+    "@napi-rs/cross-toolchain-x64-target-riscv64": "^1.0.0",
     "@napi-rs/cross-toolchain-x64-target-s390x": "^1.0.0",
     "@napi-rs/cross-toolchain-x64-target-x86_64": "^1.0.0"
   },
@@ -48,6 +50,9 @@
       "optional": true
     },
     "@napi-rs/cross-toolchain-arm64-target-ppc64le": {
+      "optional": true
+    },
+    "@napi-rs/cross-toolchain-arm64-target-riscv64": {
       "optional": true
     },
     "@napi-rs/cross-toolchain-arm64-target-s390x": {
@@ -63,6 +68,9 @@
       "optional": true
     },
     "@napi-rs/cross-toolchain-x64-target-ppc64le": {
+      "optional": true
+    },
+    "@napi-rs/cross-toolchain-x64-target-riscv64": {
       "optional": true
     },
     "@napi-rs/cross-toolchain-x64-target-s390x": {
