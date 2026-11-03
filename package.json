@@ -19,7 +19,7 @@
     "registry": "https://registry.npmjs.org/",
     "access": "public"
   },
-  "packageManager": "yarn@4.9.2",
+  "packageManager": "yarn@4.18.1",
   "files": [
     "index.js",
     "index.d.ts",
@@ -73,12 +73,12 @@
     }
   },
   "devDependencies": {
-    "lerna": "^8.2.3",
-    "lodash-es": "^4.17.21"
+    "lerna": "^10.1.1",
+    "lodash-es": "^4.18.1"
   },
   "dependencies": {
-    "@napi-rs/lzma": "^1.4.5",
-    "@napi-rs/tar": "^1.1.0",
-    "debug": "^4.4.1"
+    "@napi-rs/lzma": "^1.5.2",
+    "@napi-rs/tar": "^1.1.2",
+    "debug": "^4.4.3"
   }
 }
