@@ -42,12 +42,22 @@ const targets = [
     name: 'powerpc64le-unknown-linux-gnu',
     tag: 'ppc64le',
   },
+  // riscv64 is not in manylinux2014 (glibc 2.17). The oldest official
+  // riscv64 manylinux is 2_31 (glibc 2.31, GCC 7.5). The image lays the
+  // compiler out as riscv64-unknown-linux-gnu; Rust's triple is
+  // riscv64gc-unknown-linux-gnu (see index.js alias).
+  {
+    name: 'riscv64-unknown-linux-gnu',
+    tag: 'riscv64',
+    image: 'messense/manylinux_2_31-cross:riscv64',
+  },
 ]
 
 for (const host of hosts) {
   for (const target of targets) {
+    const image = target.image ?? `messense/manylinux2014-cross:${target.tag}`
     execSync(
-      `docker run --rm --platform=linux/${host.name} -v "$(pwd)/${host.nameInNode}":/${host.nameInNode} messense/manylinux2014-cross:${target.tag} bash -c "tar -cvf /${host.nameInNode}/${target.name}.tar /usr/${target.name}"`,
+      `docker run --rm --platform=linux/${host.name} -v "$(pwd)/${host.nameInNode}":/${host.nameInNode} ${image} bash -c "tar -cvf /${host.nameInNode}/${target.name}.tar /usr/${target.name}"`,
       {
         encoding: 'utf8',
         stdio: 'inherit',
