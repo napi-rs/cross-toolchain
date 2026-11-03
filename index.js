@@ -8,11 +8,13 @@ const { version } = require('./package.json')
 let arm64TargetX86_64
 let arm64TargetAarch64
 let arm64TargetArmv7
+let arm64TargetLoongarch64
 let arm64TargetS390x
 let arm64TargetPowerpc64le
 let x64TargetX86_64
 let x64TargetAarch64
 let x64TargetArmv7
+let x64TargetLoongarch64
 let x64TargetS390x
 let x64TargetPowerpc64le
 const alias = {
@@ -38,6 +40,12 @@ try {
   // ignore
 }
 try {
+  arm64TargetLoongarch64 =
+    require('@napi-rs/cross-toolchain-arm64-target-loongarch64').toolchainPath
+} catch {
+  // ignore
+}
+try {
   x64TargetX86_64 =
     require('@napi-rs/cross-toolchain-x64-target-x86_64').toolchainPath
 } catch {
@@ -52,6 +60,12 @@ try {
 try {
   x64TargetArmv7 =
     require('@napi-rs/cross-toolchain-x64-target-armv7').toolchainPath
+} catch {
+  // ignore
+}
+try {
+  x64TargetLoongarch64 =
+    require('@napi-rs/cross-toolchain-x64-target-loongarch64').toolchainPath
 } catch {
   // ignore
 }
@@ -90,6 +104,8 @@ module.exports.x64TargetS390x = x64TargetS390x
 module.exports.arm64TargetS390x = arm64TargetS390x
 module.exports.x64TargetPowerpc64le = x64TargetPowerpc64le
 module.exports.arm64TargetPowerpc64le = arm64TargetPowerpc64le
+module.exports.x64TargetLoongarch64 = x64TargetLoongarch64
+module.exports.arm64TargetLoongarch64 = arm64TargetLoongarch64
 
 module.exports.arm64 = {
   'armv7-unknown-linux-gnueabihf': arm64TargetArmv7,
@@ -97,6 +113,7 @@ module.exports.arm64 = {
   'x86_64-unknown-linux-gnu': arm64TargetX86_64,
   's390x-unknown-linux-gnu': arm64TargetS390x,
   'powerpc64le-unknown-linux-gnu': arm64TargetPowerpc64le,
+  'loongarch64-unknown-linux-gnu': arm64TargetLoongarch64,
 }
 
 module.exports.x64 = {
@@ -105,6 +122,7 @@ module.exports.x64 = {
   'x86_64-unknown-linux-gnu': x64TargetX86_64,
   's390x-unknown-linux-gnu': x64TargetS390x,
   'powerpc64le-unknown-linux-gnu': x64TargetPowerpc64le,
+  'loongarch64-unknown-linux-gnu': x64TargetLoongarch64,
 }
 
 module.exports.version = version
@@ -119,6 +137,8 @@ const packages = {
     's390x-unknown-linux-gnu': '@napi-rs/cross-toolchain-arm64-target-s390x',
     'powerpc64le-unknown-linux-gnu':
       '@napi-rs/cross-toolchain-arm64-target-ppc64le',
+    'loongarch64-unknown-linux-gnu':
+      '@napi-rs/cross-toolchain-arm64-target-loongarch64',
   },
   x64: {
     'armv7-unknown-linux-gnueabihf':
@@ -128,6 +148,8 @@ const packages = {
     's390x-unknown-linux-gnu': '@napi-rs/cross-toolchain-x64-target-s390x',
     'powerpc64le-unknown-linux-gnu':
       '@napi-rs/cross-toolchain-x64-target-ppc64le',
+    'loongarch64-unknown-linux-gnu':
+      '@napi-rs/cross-toolchain-x64-target-loongarch64',
   },
 }
 

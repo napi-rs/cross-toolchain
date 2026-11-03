@@ -1,0 +1,28 @@
+{
+  "name": "@napi-rs/cross-toolchain-x64-target-loongarch64",
+  "cpu": [
+    "x64"
+  ],
+  "scripts": {
+    "prepublishOnly": "tar -cvf loongarch64-unknown-linux-gnu.tar . && xz -z -e --threads=4 loongarch64-unknown-linux-gnu.tar"
+  },
+  "main": "index.js",
+  "types": "index.d.ts",
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "loongarch64-unknown-linux-gnu.tar.xz"
+  ],
+  "version": "1.0.3",
+  "license": "MIT",
+  "author": {
+    "name": "LongYinan",
+    "email": "github@lyn.one",
+    "url": "https://lyn.one"
+  },
+  "repository": "https://github.com/napi-rs/cross-toolchain",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  }
+}
